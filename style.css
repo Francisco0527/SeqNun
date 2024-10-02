@@ -1,0 +1,100 @@
+/* Aplica a imagem de fundo */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background-color: rgba(171, 56, 37, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(103, 243, 254, 0.8);
+  text-align: center;
+  color: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(29, 56, 75);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(43, 93, 112);
+}
+
+#sequences-container {
+  margin-top: 20px;
+}
+
+.sequence {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Estilizando a barra de rolagem para navegadores baseados em WebKit */
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: rgb(29, 56, 75);
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: rgb(43, 93, 112);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 80%;
+  }
+  .sequence {
+    font-size: 14px;
+  }
+}
