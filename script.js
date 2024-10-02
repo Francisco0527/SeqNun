@@ -10,30 +10,21 @@ function generateSequences() {
     document.getElementById("sequence-count").value
   );
   const allNumbers = Array.from({ length: 25 }, (_, i) => i + 1);
-  const sequences = [];
+  const sequences = Array.from({ length: sequenceCount }, () => []);
 
-  for (let i = 0; i < sequenceCount; i++) {
-    const sequence = [];
+  // Preenche cada sequência com um número único de 1 a 25
+  allNumbers.forEach((num, index) => {
+    const seqIndex = index % sequenceCount; // Distribui os números de forma equitativa
+    sequences[seqIndex].push(num);
+  });
+
+  // Preenche o restante da sequência com números aleatórios, garantindo que não haja repetições
+  sequences.forEach((sequence) => {
     while (sequence.length < 15) {
       const randomNumber = Math.floor(Math.random() * 25) + 1;
       if (!sequence.includes(randomNumber)) {
         sequence.push(randomNumber);
       }
-    }
-    sequences.push(sequence);
-  }
-
-  // Garante que todos os números de 1 a 25 estejam presentes em pelo menos uma sequência
-  const missingNumbers = allNumbers.filter(
-    (num) => !sequences.some((seq) => seq.includes(num))
-  );
-  missingNumbers.forEach((num, index) => {
-    sequences[index % sequenceCount].push(num);
-    while (sequences[index % sequenceCount].length > 15) {
-      sequences[index % sequenceCount].splice(
-        Math.floor(Math.random() * sequences[index % sequenceCount].length),
-        1
-      );
     }
   });
 
